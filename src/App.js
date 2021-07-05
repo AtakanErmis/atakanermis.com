@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import socials from "./socials";
+import { ThemeContext } from "./themeContext";
+
+function ToggleThemeButton({theme, setTheme}) {
+  const icon = theme === "dark" ? "light" : "dark";
+  return (
+    <button className="button__toggle-theme" onClick={_ => setTheme(icon)}>
+      <i className={'icon-' + icon} />
+    </button>  
+  );
+}
 
 function App() {
+  const [theme, setTheme] = useContext(ThemeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={"App-" + theme}>
+      <ToggleThemeButton theme={theme} setTheme={setTheme} />
+      <div className="content">
+        <h1>ATAKAN ERMİŞ</h1>
+        <h2>Software Developer</h2>
+        <ul>
+          {socials.map((social, index) => (
+            <li style={{animationDelay: index*75 + 'ms'}}>
+              <a href={social.link}
+                 aria-label={social.name}
+                 rel="noopener noreferrer"
+                 target="_blank"
+              >
+                <i className={social.icon} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </main>
   );
 }
 
