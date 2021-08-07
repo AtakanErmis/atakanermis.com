@@ -2,12 +2,12 @@ import { useContext } from "react";
 import socials from "./socials";
 import { ThemeContext } from "./themeContext";
 
-function ToggleThemeButton({theme, setTheme}) {
+function ToggleThemeButton({ theme, setTheme }) {
   const icon = theme === "dark" ? "light" : "dark";
   return (
-    <button className="button__toggle-theme" onClick={_ => setTheme(icon)}>
-      <i className={'icon-' + icon} />
-    </button>  
+    <button className="button__toggle-theme" onClick={(_) => setTheme(icon)}>
+      <i className={"icon-" + icon} />
+    </button>
   );
 }
 
@@ -21,11 +21,12 @@ function App() {
         <h2>Software Developer</h2>
         <ul>
           {socials.map((social, index) => (
-            <li style={{animationDelay: index*75 + 'ms'}}>
-              <a href={social.link}
-                 aria-label={social.name}
-                 rel="noopener noreferrer"
-                 target="_blank"
+            <li style={{ animationDelay: index * 75 + "ms" }}>
+              <a
+                href={social.link}
+                aria-label={social.name}
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <i className={social.icon} />
               </a>
