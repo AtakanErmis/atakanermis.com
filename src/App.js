@@ -5,7 +5,11 @@ import { ThemeContext } from "./themeContext";
 function ToggleThemeButton({ theme, setTheme }) {
   const icon = theme === "dark" ? "light" : "dark";
   return (
-    <button className="button__toggle-theme" onClick={(_) => setTheme(icon)}>
+    <button
+      aria-label="Toggle theme"
+      className="button__toggle-theme"
+      onClick={(_) => setTheme(icon)}
+    >
       <i className={"icon-" + icon} />
     </button>
   );
@@ -21,7 +25,7 @@ function App() {
         <h2>Software Developer</h2>
         <ul>
           {socials.map((social, index) => (
-            <li style={{ animationDelay: index * 75 + "ms" }}>
+            <li key={index} style={{ animationDelay: index * 75 + "ms" }}>
               <a
                 href={social.link}
                 aria-label={social.name}
