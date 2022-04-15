@@ -5,9 +5,9 @@ const socials = [
     link: "https://twitter.com/atakan_ermis",
   },
   {
-    name: "Reddit",
-    icon: "icon-reddit",
-    link: "https://www.reddit.com/user/AtakanErmis",
+    name: "LinkedIn",
+    icon: "icon-linkedin",
+    link: "https://www.linkedin.com/in/atakan-ermi%C5%9F-1671a01a2/",
   },
   {
     name: "Github",
