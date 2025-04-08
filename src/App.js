@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import socials from "./socials";
 import { ThemeContext } from "./themeContext";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 function ToggleThemeButton({ theme, setTheme }) {
-  const icon = theme === "dark" ? "light" : "dark";
+  const Icon = theme === "dark" ? MdLightMode : MdDarkMode;
   return (
     <button
       aria-label="Toggle theme"
       className="button__toggle-theme"
-      onClick={(_) => setTheme(icon)}
+      onClick={(_) => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      <i className={"icon-" + icon} />
+      <Icon fontSize={24} />
     </button>
   );
 }
@@ -32,7 +33,7 @@ function App() {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <i className={social.icon} />
+                {social.icon}
               </a>
             </li>
           ))}
